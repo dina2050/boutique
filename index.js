@@ -26,11 +26,5 @@ $(document).ready(function () {
         })
         
     }
-    var heading = $(".heading")
     
-    currentProductId = GET_PARAM("produit_id")
-    currentProduct = catalog[currentProductId]
-
-
-    heading.html(currentProduct.name)
 })
