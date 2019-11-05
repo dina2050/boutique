@@ -18,38 +18,71 @@ $(document).ready(function (){
 var tableBody = $("<tbody></tbody>")
 $(".table").append(tableBody)
 for(let i=0;i<cart.length;i++){
-    var tr = $("<tr></tr>")
+    var cartItem = cart[i]
+    var productId = cartItem.productId
+    var product = catalog[productId]
+
+    var tr = $("<tr>")
     tableBody.append(tr)
-    tr.attr("id",i)
-    var th = $("<th></th>")
+    var th = $("<th>")
     tr.append(th)
-    th.html(catalog[cart[i].productId].name)
-    var input = $("<input type = number>")
-    tr.append(input)
-    input.val(cart[i].quantity)
-    input.attr("id",i)
-    var thisInput = input.attr("id")
+    th.html(product.name)
     
+    var td1 = $("<td></td>")
+    var input = $("<input type='number'>")
+    input.val(cartItem.quantity)
+    td1.attr("id", "qty-"+i)
+    td1.append(input)
+    tr.append(td1)
+
+    var td2 = $("<td></td>")
+    td2.attr("id", "pu-"+i)
+    td2.html(product.price)
+    tr.append(td2)
+
+
+    var td3 = $("<td></td>")
+    input.attr("id", "quantity-"+productId)
+    td3.html(cartItem.quantity*product.price)
+    tr.append(td3)
+    td3.attr("id","total"+productId)
+
+    tableBody.append(tr)
+
+    input.change(function(){
+
+        newQuantity = $(this).val()
+        priceProd = catalog[$(this).attr('id').replace("quantity-", "")].price
+        $('#total' + $(this).attr('id').replace("quantity-", "")).html(newQuantity * priceProd)
+   
+    })
     
-    for(let j=0;j<2;j++){
-        var td = $("<td></td>")
-        tr.append(td)
-        td.attr("id",j)
-        var priceId = td.attr("id")
-        if (priceId == 0) {
-            td.html(catalog[cart[i].productId].price)
-        }
-        else {
-            catalog[cart[i].productId].price*input.val()
-            console.log(catalog[cart[i].productId].price*input.val())
-        }
-         
-        
-        
-        
-    }
-        
-    
+
 }
 
-});
+var table2 = $("<table>")
+$(".container").append(table2)
+var tableBody2 = $("<tbody>")
+table2.append(tableBody2)
+var tr2 = $("<tr>")
+tableBody2.append(tr2)
+var th1 = $("<th>Total</th>")
+tr2.append(th1)
+var tr3 = $("<tr>")
+tableBody2.append(tr3)
+var th2 = $("<th>TVA</th>")
+tr3.append(th2)
+var tr4 = $("<tr>")
+tableBody2.append(tr4)
+var th3 = $("<th>Total TTC</th>")
+tr4.append(th3)
+var tdTotal = $("<td>") 
+tr2.append(tdTotal)
+var tdTva = $("<td>")
+tr3.append(tdTva) 
+var tdTtc = $("<td>")
+tr4.append(tdTtc) 
+
+
+
+})
