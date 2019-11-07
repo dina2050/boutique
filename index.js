@@ -6,7 +6,7 @@ var GET_PARAM = function(name) {
 $(document).ready(function () {
     var slidersTop = $(".img-sliders")
     
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 6; i++) {
         topVente = $(".top-vente:nth(" + i + ")")
         
         var randomIndex = Math.floor(Math.random() * catalog.length)

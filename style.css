@@ -1,0 +1,24 @@
+.colorChange {
+  background-color: #524f48;
+  font-family: "Yeon Sung", cursive;
+  font-size: 1.3rem; }
+
+.colorChange2 {
+  background-color: #b05043;
+  font-family: "Yeon Sung", cursive;
+  font-size: 1.3rem; }
+
+.styling {
+  color: #524f48; }
+  .styling:hover {
+    border: 1px solid #b05043;
+    background-color: #b05043;
+    width: 55%;
+    border-radius: 30px;
+    transform: rotate(2deg);
+    padding-left: 0.2em; }
+
+.noDeco:hover {
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */
