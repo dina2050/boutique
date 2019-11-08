@@ -11,6 +11,8 @@ $(document).ready(function () {
         cart = JSON.parse(cart)
     }
     
+    console.log(cart);
+    
     currentProductId = GET_PARAM("produit_id")
     currentProduct = catalog[currentProductId]
     $(".heading").html(currentProduct.name)
